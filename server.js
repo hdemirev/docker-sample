@@ -1,16 +1,16 @@
-'use strict';
+"use strict";
 
-const express = require('express');
+const express = require("express");
 
 // Constants
 const PORT = 8080;
-const HOST = '0.0.0.0';
+const HOST = "0.0.0.0";
 
 // App
 const app = express();
-app.get('/', (req, res) => {
-  console.log('handling request')
-  res.send('Hello World');
+app.get("/", (req, res) => {
+  console.log("handling request, k revision: ", process.env.K_REVISION);
+  res.send("Hello World");
 });
 
 app.listen(PORT, HOST);
