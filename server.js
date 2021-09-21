@@ -10,7 +10,7 @@ const HOST = "0.0.0.0";
 const app = express();
 app.get("/", (req, res) => {
   console.log("handling request, k revision: ", process.env.K_REVISION);
-  res.send("Hello World");
+  res.send("Hello World, k revision: " + process.env.K_REVISION);
 });
 
 app.listen(PORT, HOST);
