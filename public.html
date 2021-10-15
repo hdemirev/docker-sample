@@ -1,0 +1,38 @@
+<html>
+    <body>
+        <h1>Hello!</h1>
+
+
+        <textarea id="query-text"></textarea>
+        <button onclick="submit()">Submit</button>
+
+        <script>
+            let jobId = ""
+            let checkInterval = null
+            const submit = async() => {
+                const data = {query: document.getElementById("query-text").value};
+                console.log('submitting')
+                const res = await fetch("/new-request", {
+                    method: "POST", 
+                    headers: {
+                    'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                })
+                const responseData = await res.json()
+                jobId = responseData.jobId
+
+                checkInterval = setInterval(()=>{
+                    //checkJob(jobId)
+                    checkJob('job-c5krrgce65jo53fo2on0')
+                }, 1000)
+
+            }
+            const checkJob = async(id) => {
+                const res = await fetch(`/check-request?id=${id}`)
+                const data = await res.json()
+                console.log(data)
+            }
+        </script>
+    </body>
+</html>
