@@ -7,6 +7,6 @@ services:
 databases:
   - name: test-free
     region: frankfurt
-    plan: starter
+    plan: free
     databaseName: prod_app
     user: app_user
