@@ -11,9 +11,13 @@
         <script>
             let jobId = ""
             let checkInterval = null
+            let queryStart = null
             const submit = async() => {
+                if(checkInterval){
+                    clearInterval(checkInterval)
+                }
                 const data = {query: document.getElementById("query-text").value};
-                console.log('submitting')
+                queryStart = new Date()
                 const res = await fetch("/new-request", {
                     method: "POST", 
                     headers: {
@@ -41,7 +45,12 @@
                 const newNode = document.createElement("P")
                 console.log(data)
                 if(data.result){
-                    newNode.innerText = JSON.stringify(data.result)
+                    const queryEnd = new Date(data.finishedAt)
+                    const queryTime = (queryEnd - queryStart) / 1000
+                    const finishedNode = document.createElement("P")
+                    finishedNode.innerText = `Query completed in ${queryTime} seconds`
+                    responseArea.prepend(finishedNode)
+                    newNode.innerText = JSON.stringify(data.result.responseData)
                     responseArea.prepend(newNode)
                     if(checkInterval){
                         clearInterval(checkInterval)
