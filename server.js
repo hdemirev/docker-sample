@@ -29,7 +29,7 @@ const createJob = async(query) => {
     const response = await fetch(`https://api.staging.render.com/v1/services/${process.env.RENDER_SERVICE_ID}/jobs`, {
       method: 'post',
       body: JSON.stringify({
-        startCommand: `QUERY=${escape(query)} node runQuery.js`,
+        startCommand: `node runQuery.js ${escape(query)}`,
         planId: 'plan-srv-007'
       }),
       headers: {
