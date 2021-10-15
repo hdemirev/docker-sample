@@ -23,8 +23,7 @@
                 jobId = responseData.jobId
 
                 checkInterval = setInterval(()=>{
-                    //checkJob(jobId)
-                    checkJob('job-c5krrgce65jo53fo2on0')
+                    checkJob(jobId)
                 }, 1000)
 
             }
@@ -32,6 +31,9 @@
                 const res = await fetch(`/check-request?id=${id}`)
                 const data = await res.json()
                 console.log(data)
+                if(checkInterval){
+                    clearInterval(checkInterval)
+                }
             }
         </script>
     </body>
