@@ -26,7 +26,7 @@
                 const responseArea = document.getElementById('response-area')
                 const newNode = document.createElement("P")
                 newNode.innerText = `Query submitted at: ${new Date().toLocaleTimeString()} (${jobId})`
-                responseArea.appendChild(newNode)
+                responseArea.prepend(newNode)
 
                 checkInterval = setInterval(()=>{
                     checkJob(jobId)
@@ -42,13 +42,13 @@
                 console.log(data)
                 if(data.result){
                     newNode.innerText = data.result
-                    responseArea.appendChild(newNode)
+                    responseArea.prepend(newNode)
                     if(checkInterval){
                         clearInterval(checkInterval)
                     }
                 } else {
                     newNode.innerText = `Checked at: ${checkStart.toLocaleTimeString()} and query has not finished`
-                    responseArea.appendChild(newNode)
+                    responseArea.prepend(newNode)
                 }
             }
         </script>
