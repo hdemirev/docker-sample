@@ -4,4 +4,3 @@ services:
     env: docker
     region: oregon
     plan: free
-    numInstances: 3
