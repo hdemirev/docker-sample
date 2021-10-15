@@ -6,7 +6,7 @@ services:
     plan: free
 databases:
   - name: test-free
-    region: oregon
+    region: frankfurt
     plan: free
     databaseName: prod_app
     user: app_user
