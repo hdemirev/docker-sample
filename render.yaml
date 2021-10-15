@@ -4,8 +4,3 @@ services:
     env: docker
     region: oregon
     plan: free
-    scaling:
-      minInstances: 1
-      maxInstances: 3
-      targetMemoryPercent: 60 # optional if targetCPUPercent is set (valid: 1-90)
-      targetCPUPercent: 60 # optional if targetMemory is set (valid: 1-90)
