@@ -4,3 +4,9 @@ services:
     env: docker
     region: oregon
     plan: free
+databases:
+  - name: test-free
+    region: oregon
+    plan: free
+    databaseName: prod_app
+    user: app_user
