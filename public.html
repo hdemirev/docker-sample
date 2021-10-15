@@ -41,7 +41,7 @@
                 const newNode = document.createElement("P")
                 console.log(data)
                 if(data.result){
-                    newNode.innerText = data.result
+                    newNode.innerText = JSON.stringify(data.result)
                     responseArea.prepend(newNode)
                     if(checkInterval){
                         clearInterval(checkInterval)
