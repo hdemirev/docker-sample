@@ -1,0 +1,6 @@
+services:
+  - type: web
+    name: free-yaml-test
+    env: docker
+    region: oregon
+    plan: free
