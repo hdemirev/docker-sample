@@ -12,7 +12,8 @@ const pool = new Pool({
 
 const run = async() => {
     const jobId = process.env.RENDER_INSTANCE_ID.substring(0,24)
-    const userResponse = await pool.query(process.env.QUERY)
+    const userQuery = unescape(process.env.QUERY)
+    const userResponse = await pool.query(userQuery)
     await pool.query('insert into query_results(job_id, response) VALUES($1, $2)', [jobId, userResponse.rows])
     process.exit(0)
 }
