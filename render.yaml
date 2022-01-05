@@ -5,3 +5,4 @@ services:
     startCommand: node server.js
     buildCommand: npm install
     region: oregon
+    plan: starter
