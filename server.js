@@ -22,4 +22,5 @@ app.get("/read-file", (req, res) => {
 });
 
 app.listen(PORT, HOST);
+console.log("hello");
 console.log(`Running on http://${HOST}:${PORT}`);
