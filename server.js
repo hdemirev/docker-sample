@@ -1,7 +1,7 @@
 "use strict";
 
 const express = require("express");
-const fs = require('fs')
+const fs = require("fs");
 
 // Constants
 const PORT = 8080;
@@ -15,8 +15,8 @@ app.get("/", (req, res) => {
 });
 
 app.get("/read-file", (req, res) => {
-  const data = fs.readFileSync('/etc/secrets/.env')
-  res.send(data.toString())
+  const data = fs.readFileSync("/etc/secrets/.env");
+  res.send(data.toString());
   console.log("handling request, k revision: ", process.env.K_REVISION);
   res.send("Hello World, k revision: " + process.env.K_REVISION);
 });
